@@ -1373,7 +1373,7 @@ class apiController extends appController
 		
 		run_sql( $sql );
 		
-		if( mysql_errno() != 0 )
+		if( mysqli_errno() != 0 )
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         else
 		{
@@ -1523,7 +1523,7 @@ class apiController extends appController
 		$sql = "UPDATE `todo` SET `content` = '" . s($content) . "' WHERE `id` = '" . intval($tid) . "' LIMIT 1";
 		run_sql( $sql );
 		
-		if( mysql_errno() != 0 )
+		if( mysqli_errno() != 0 )
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         else
 		{
@@ -1549,7 +1549,7 @@ class apiController extends appController
 		$sql = "DELETE FROM `todo_user` WHERE `uid` = '" . intval($_SESSION['uid']) . "' AND `status` = 3 " ;
         run_sql( $sql );
 		
-		if( mysql_errno() != 0 )
+		if( mysqli_errno() != 0 )
         {
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         }
@@ -1572,7 +1572,7 @@ class apiController extends appController
 		$sql = "UPDATE `todo_user` SET `status` = 3 WHERE `uid` = '" . intval($_SESSION['uid']) . "' AND ( `status` = 1 OR `status` = 2 )  " ;
         run_sql( $sql );
 		
-		if( mysql_errno() != 0 )
+		if( mysqli_errno() != 0 )
         {
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         }
@@ -1601,7 +1601,7 @@ class apiController extends appController
         $sql = "DELETE FROM `todo_user` WHERE  `tid` = '" . intval($tid) . "' AND `uid` = '" . intval($_SESSION['uid']) . "' LIMIT 1" ;
         run_sql( $sql );
         
-        if( mysql_errno() != 0 )
+        if( mysqli_errno() != 0 )
         {
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         }
@@ -2290,7 +2290,7 @@ class apiController extends appController
         
 		$data = get_line( $sql );
         
-        if( mysql_errno() != 0 )
+        if( mysqli_errno() != 0 )
         {
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         }
@@ -2298,7 +2298,7 @@ class apiController extends appController
         $sql = "DELETE FROM `feed` WHERE  `id` = '" . intval($fid) . "' LIMIT 1" ;
         run_sql( $sql );
         
-        if( mysql_errno() != 0 )
+        if( mysqli_errno() != 0 )
         {
             return self::send_error( LR_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
         }
@@ -2524,7 +2524,7 @@ class apiController extends appController
 				 
 		run_sql( $sql );
 				 
-		if( mysql_errno() != 0 )
+		if( mysqli_errno() != 0 )
 		{
 			return self::send_error( OP_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
 		}
@@ -2561,7 +2561,7 @@ class apiController extends appController
 		, '" . intval($uid) . "' , NOW() , '" . s( $text ) . "' ) ";
 		run_sql( $sql );
 
-		if( mysql_errno() != 0 )
+		if( mysqli_errno() != 0 )
 		{
 			return self::send_error( OP_API_DB_ERROR , __('API_MESSAGE_DATABASE_ERROR') . mysql_error() );
 		}

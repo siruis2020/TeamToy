@@ -92,7 +92,7 @@ function get_data( $sql , $db = NULL )
 	if( mysqli_errno( $db ) != 0 )
 		echo mysqli_error( $db ) .' ' . $sql;
 	
-	while( $Array = mysqli_fetch_array($result, MYSQL_ASSOC ) )
+	while( $Array = mysqli_fetch_array($result, MYSQLI_ASSOC ) )
 	{
 		$data[$i++] = $Array;
 	}
