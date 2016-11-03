@@ -2512,9 +2512,7 @@ class apiController extends appController
 			$local_storage_url = c('site_url') . DS . 'static' . DS . 'upload' . DS . 'avatar' . DS ;
 			$thumb_path = $local_storage . $file_thumb_name;
 			$thumb_url = $local_storage_url . $file_thumb_name;
-			if (!file_exists($local_storage)){
-				mkdir($local_storage, 0777, true);
-			}
+
 			if( !copy( $tmp_file , $thumb_path ) )
 				return self::send_error( OP_API_STORAGE_ERROR , 'SAVE ERROR '  );
 		}
