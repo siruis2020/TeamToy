@@ -370,9 +370,8 @@ PRIMARY KEY (  `folder_name` )
 
 
 		
-
 		$data['token'] = token();
-		$data['file'] = '@'.$tmp_name;
+		$data['file'] = new CURLFile(realpath($tmp_name));
 
 		if($content = upload_as_form( c('api_server').'?c=api&a=user_update_avatar' , $data ))
 		{
